@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <form class="mt-5 col-12 col-sm-10 col-md-5 col-lg-4 mx-auto">
+    <form class="mt-5 col-12 col-sm-10 col-md-5 col-lg-4 mx-auto" novalidate>
       <h1 class="text-center mb-5">Cadastro</h1>
 
       <div class="form-group">
@@ -20,11 +20,42 @@
 
       <div class="form-group">
         <label for="dtnascimento">Data de nascimento</label>
-        <input type="text" class="form-control" id="dtnascimento">
+        <div class="input-group">
+          <input class="form-control" id="dtnascimento" placeholder="dd-mm-aaaa" name="dp" [(ngModel)]="model"
+            getDayAriaLabel ngbDatepicker #d="ngbDatepicker" [maxDate]="maxDate" [minDate]="minDate" [markDisabled]="isDisabled">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button">
+              <i class="fa fa-calendar"></i>
+            </button>
+          </div>
+        </div>
       </div>
 
-      <button class="btn btn-success col-12 col-sm-12 mt-5" type="submit">Cadastrar</button>
+      <div class="form-group">Gênero</div>
 
+      <div class="form-group col-12 col-sm-12">
+        <div class="col-12 col-sm-12">
+          <input type="radio" class="form-check-input" name="genero" id="generom" value="m" />
+          <label for="generom">Masculino</label>
+        </div>
+
+        <div class="col-12 col-sm-12">
+          <input type="radio" class="form-check-input" name="genero" id="generof" value="f" />
+          <label for="generof">Feminino</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="estado">Estado</label>
+
+        <select class="form-control" id="estado">
+          <option>Selecione</option>
+          <option>São Paulo</option>
+          <option>Outro</option>
+        </select>
+      </div>
+
+      <button class="btn btn-success col-12 col-sm-12 mt-5 mb-5" type="submit">Cadastrar</button>
     </form>
   </div>
 </div>
