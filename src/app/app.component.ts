@@ -1,5 +1,5 @@
 import { Component, Injectable } from '@angular/core';
-import { NgbDatepickerI18n, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
+import { NgbDatepickerI18n, NgbDateStruct, NgbDatepicker } from '@ng-bootstrap/ng-bootstrap';
 
 const I18N_VALUES = {
   'pt': {
@@ -18,6 +18,7 @@ export class CustomDatepickerI18n extends NgbDatepickerI18n {
 
   constructor(private _i18n: I18n) {
     super();
+
   }
 
   getWeekdayShortName(weekday: number): string {
@@ -45,9 +46,27 @@ export class CustomDatepickerI18n extends NgbDatepickerI18n {
 })
 
 export class AppComponent {
-  model: NgbDateStruct
+  selectedDate: NgbDateStruct
   minDate: NgbDateStruct = { day: 1, month: 1, year: (new Date().getFullYear() - 130) };
-  maxDate: NgbDateStruct = { day: 1, month: 1, year: (new Date().getFullYear() - 10) }; 
-  public customPatterns = {'0': { pattern: new RegExp('\[a-zA-Z\]')}};
-  
+  maxDate: NgbDateStruct = { day: 1, month: 1, year: (new Date().getFullYear() - 10) };
+  dateFormat: String;
+
+  constructor() { }
+
+  onDateSelect(event) {
+    let day:String = String(event.day);
+    let month:String = String(event.month);
+
+    if(day.length == 1){
+      day = "0" + day;
+    }
+
+    if(month.length == 1){
+      month = "0" + month;
+    }
+
+    this.dateFormat = day + "/" + month + "/" + event.year;
+
+  }
+
 }

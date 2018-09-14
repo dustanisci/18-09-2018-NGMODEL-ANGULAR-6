@@ -21,8 +21,12 @@
       <div class="form-group">
         <label for="dtnascimento">Data de nascimento</label>
         <div class="input-group">
-          <input class="form-control" id="dtnascimento" placeholder="dd-mm-aaaa" name="dp" [(ngModel)]="model"
-            getDayAriaLabel ngbDatepicker #d="ngbDatepicker" [maxDate]="maxDate" [minDate]="minDate" [markDisabled]="isDisabled">
+
+          <input hidden (ngModelChange)="onDateSelect($event)" class="form-control" id="dtnascimento" placeholder="dd-mm-aaaa" name="dp" [(ngModel)]="selectedDate"
+            getDayAriaLabel ngbDatepicker #d="ngbDatepicker" (select)="onDateSelect($event)" [maxDate]="maxDate" [minDate]="minDate" [markDisabled]="isDisabled">
+
+          <label class="form-control">{{dateFormat}}</label>
+
           <div class="input-group-append">
             <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button">
               <i class="fa fa-calendar"></i>
