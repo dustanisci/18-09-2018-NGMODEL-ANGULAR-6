@@ -18,7 +18,6 @@ export class CustomDatepickerI18n extends NgbDatepickerI18n {
 
   constructor(private _i18n: I18n) {
     super();
-
   }
 
   getWeekdayShortName(weekday: number): string {
@@ -54,19 +53,21 @@ export class AppComponent {
   constructor() { }
 
   onDateSelect(event) {
-    let day:String = String(event.day);
-    let month:String = String(event.month);
+    let day: String = String(event.day);
+    let month: String = String(event.month);
 
-    if(day.length == 1){
+    if (day.length == 1) {
       day = "0" + day;
     }
 
-    if(month.length == 1){
+    if (month.length == 1) {
       month = "0" + month;
     }
 
     this.dateFormat = day + "/" + month + "/" + event.year;
-
   }
+
+
+
 
 }

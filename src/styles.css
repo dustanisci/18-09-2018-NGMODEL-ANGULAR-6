@@ -5,3 +5,11 @@
 i{
     font-size:22px !important;
 }
+
+.erro .form-control{
+    border: 1px solid red;
+}
+
+.sucesso .form-control{
+    border: 1px solid green;
+}

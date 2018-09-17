@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { ValidValidatorComponent } from './valid-validator/valid-validator.component';
 import { InvalidValidatorComponent } from './invalid-validator/invalid-validator.component';
 import { ValidatorComponent } from './validator/validator.component';
+import { TextMaskModule } from 'angular2-text-mask';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ValidatorComponent } from './validator/validator.component';
   imports: [
     BrowserModule,
     NgbModule,
-    FormsModule
+    FormsModule,
+    TextMaskModule
   ],
   providers: [],
   bootstrap: [AppComponent]
