@@ -6,40 +6,22 @@
       {{form.value | json}}
       <h1 class="text-center mb-5">Cadastro</h1>
 
-      <div class="form-group">
+      <app-validator>
+        <label for="nome">Nome</label>
+        <input ngModel id="nome" name="nome" class="form-control" required>
+      </app-validator>
 
-        <label for="nome">Nome completo</label>
-        <input #nome="ngModel" [class.erro]="!nome.valid && (nome.dirty || nome.touched)" [class.sucesso]="nome.valid && (nome.dirty || nome.touched)"
-          name="nome" ngModel type="text" class="form-control" id="nome" required>
-
-        <app-invalid-validator *ngIf="!nome.valid && (nome.dirty || nome.touched)"></app-invalid-validator>
-        <app-valid-validator *ngIf="nome.valid && (nome.dirty || nome.touched)"></app-valid-validator>
-
-      </div>
-
-      <div class="form-group">
+      <app-validator>
         <label for="cpf">CPF</label>
-        <input #cpf="ngModel" [class.erro]="!cpf.valid && (cpf.dirty || cpf.touched)" [class.sucesso]="cpf.valid && (cpf.dirty || cpf.touched)" name="cpf" ngModel type="text" class="form-control"
-          id="cpf" required>
+        <input ngModel id="cpf" name="cpf" class="form-control" required>
+      </app-validator>
 
-        <app-invalid-validator *ngIf="!cpf.valid && (cpf.dirty || cpf.touched)"></app-invalid-validator>
-        <app-valid-validator *ngIf="cpf.valid && (cpf.dirty || cpf.touched)"></app-valid-validator>
-
-      </div>
-
-      <div class="form-group">
-
+      <app-validator>
         <label for="rg">RG</label>
-        <input #rg="ngModel" [class.erro]="!rg.valid && (rg.dirty || rg.touched)" [class.sucesso]="rg.valid && (rg.dirty || rg.touched)" name="rg" ngModel type="text" class="form-control"
-          id="rg" required>
-
-        <app-invalid-validator *ngIf="!rg.valid && (rg.dirty || rg.touched)"></app-invalid-validator>
-        <app-valid-validator *ngIf="rg.valid && (rg.dirty || rg.touched)"></app-valid-validator>
-
-      </div>
+        <input ngModel id="rg" name="rg" class="form-control" required>
+      </app-validator>
 
       <div class="form-group">
-
         <label for="dtnascimento">Data de nascimento</label>
         <div class="input-group">
 
@@ -48,7 +30,7 @@
             (select)="onDateSelect($event)" [maxDate]="maxDate" [minDate]="minDate" [markDisabled]="isDisabled"
             required>
 
-          <span [class.erro_personalizado]="!dtnascimento.valid" class="form-control">{{dateFormat}}</span>
+          <span class="form-control">{{dateFormat}}</span>
 
           <div class="input-group-append">
             <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button">
@@ -56,34 +38,36 @@
             </button>
           </div>
         </div>
-
-        <app-invalid-validator *ngIf="!dtnascimento.valid && (dtnascimento.dirty || dtnascimento.touched)"></app-invalid-validator>
         <app-valid-validator *ngIf="dtnascimento.valid && (dtnascimento.dirty || dtnascimento.touched)"></app-valid-validator>
-
       </div>
 
-      <div class="form-group">Gênero</div>
-
       <div class="form-group col-12 col-sm-12">
+        <div class="row mb-2">
+          Gênero
+        </div>
+
         <div class="col-12 col-sm-12">
-          <input name="genero" ngModel type="radio" class="form-check-input" id="generom" value="m" />
+          <input name="genero" type="radio" class="form-check-input" id="generom" value="m" required />
           <label for="generom">Masculino</label>
         </div>
 
         <div class="col-12 col-sm-12">
-          <input name="genero" ngModel type="radio" class="form-check-input" id="generof" value="f" />
+          <input name="genero" type="radio" class="form-check-input" id="generof" value="f" required />
           <label for="generof">Feminino</label>
-        </div>
+        </div>        
       </div>
 
       <div class="form-group">
         <label for="estado">Estado</label>
 
-        <select name="estado" ngModel class="form-control" id="estado">
+        <select #estado="ngModel" ngModel name="estado" class="form-control" id="estado" required>
           <option value="">Selecione</option>
           <option value="São Paulo">São Paulo</option>
           <option value="Outro">Outro</option>
         </select>
+
+        <app-invalid-validator *ngIf="!estado.valid && (estado.dirty || estado.touched)"></app-invalid-validator>
+        <app-valid-validator *ngIf="estado.valid && (estado.dirty || estado.touched)"></app-valid-validator>
       </div>
 
       <button [disabled]="!form.valid" class="btn btn-success col-12 col-sm-12 mt-5 mb-5" type="submit">Cadastrar</button>

@@ -5,12 +5,14 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { ValidValidatorComponent } from './valid-validator/valid-validator.component';
 import { InvalidValidatorComponent } from './invalid-validator/invalid-validator.component';
+import { ValidatorComponent } from './validator/validator.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ValidValidatorComponent,
-    InvalidValidatorComponent
+    InvalidValidatorComponent,
+    ValidatorComponent
   ],
   imports: [
     BrowserModule,
