@@ -1,4 +1,5 @@
-# Form
+# Form NGMODEL - ANGULAR 6
+18/09/2018 - Exemplo em angular 6 referente a validações de formulário e NGMODEL.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.1.
 
