@@ -1,2 +1,3 @@
-# Form NGMODEL - ANGULAR 6
-18/09/2018 - Exemplo em angular 6 referente a validações de formulário e NGMODEL.
+# Formulário de cadastro
+18/09/2018 - Formulário de cadastro com validações em Angular 6 com NGMODEL.
+Endereço de acesso: https://dustanisci.github.io/form-validation/
