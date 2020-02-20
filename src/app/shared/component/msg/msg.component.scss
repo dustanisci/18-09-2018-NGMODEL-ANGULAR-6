@@ -1,0 +1,25 @@
+.info {
+  background: #17a2b8;
+  color: #FFF;
+}
+
+.error {
+  background: #d83333;
+  color: #FFF;
+}
+
+.success {
+  background: rgb(42, 128, 42);
+  color: #FFF;
+}
+
+label {
+  display: inline-block;
+  padding: 5px 20px;
+  text-align: center;
+  margin-top:10px;
+  font-size:12px;
+  border: 1px solid rgba(0, 0, 0, 0.219);
+}
+
+

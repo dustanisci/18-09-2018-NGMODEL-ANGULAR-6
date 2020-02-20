@@ -1,73 +1,43 @@
-import { Component, Injectable } from '@angular/core';
-import { NgbDatepickerI18n, NgbDateStruct, NgbDatepicker } from '@ng-bootstrap/ng-bootstrap';
-
-const I18N_VALUES = {
-  'pt': {
-    weekdays: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'],
-    months: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
-  }
-};
-
-@Injectable()
-export class I18n {
-  language = 'pt';
-}
-
-@Injectable()
-export class CustomDatepickerI18n extends NgbDatepickerI18n {
-
-  constructor(private _i18n: I18n) {
-    super();
-  }
-
-  getWeekdayShortName(weekday: number): string {
-    return I18N_VALUES[this._i18n.language].weekdays[weekday - 1];
-  }
-
-  getMonthShortName(month: number): string {
-    return I18N_VALUES[this._i18n.language].months[month - 1];
-  }
-
-  getMonthFullName(month: number): string {
-    return this.getMonthShortName(month);
-  }
-
-  getDayAriaLabel(date: NgbDateStruct): string {
-    return `${date.day}-${date.month}-${date.year}`;
-  }
-}
+import { Component } from '@angular/core';
+import { Form } from './shared/model/form';
+import { ErrorMsg } from './shared/model/error-msg';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  providers: [I18n, { provide: NgbDatepickerI18n, useClass: CustomDatepickerI18n }],
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.scss']
 })
-
 export class AppComponent {
-  selectedDate: NgbDateStruct
-  minDate: NgbDateStruct = { day: 1, month: 1, year: (new Date().getFullYear() - 130) };
-  maxDate: NgbDateStruct = { day: 1, month: 1, year: (new Date().getFullYear() - 10) };
-  dateFormat: String;
 
-  constructor() { }
+  public form = new Form();
+  public error: ErrorMsg = new ErrorMsg();
 
-  onDateSelect(event) {
-    let day: String = String(event.day);
-    let month: String = String(event.month);
+  public minDate: string;
+  public maxDate: string;
 
-    if (day.length == 1) {
-      day = "0" + day;
-    }
-
-    if (month.length == 1) {
-      month = "0" + month;
-    }
-
-    this.dateFormat = day + "/" + month + "/" + event.year;
+  constructor() {
+    this.minDate = this.subtractDateNow(130);
+    this.maxDate = this.subtractDateNow(18);
   }
 
+  public send(): void {
+    this.validate();
+  }
 
+  public checkValueDate(value: number): string {
+    return value < 10 ? '0' + value.toString() : value.toString();
+  }
 
+  public subtractDateNow(subtract: number) {
+    return this.checkValueDate(new Date().getFullYear() - subtract) + '-' +
+      this.checkValueDate(new Date().getMonth()) + '-' +
+      this.checkValueDate(new Date().getDay());
+  }
 
+  public validate(): void {
+    this.error = new ErrorMsg();
+    if (!this.form.name || this.form.name.length <= 0 || this.form.name.trim().length === 0) {
+      this.error.name = 'Nome é obrigatório.'
+    }
+  }
 }

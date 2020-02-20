@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { InvalidValidatorComponent } from './invalid-validator.component';
+import { MsgComponent } from './msg.component';
 
-describe('InvalidValidatorComponent', () => {
-  let component: InvalidValidatorComponent;
-  let fixture: ComponentFixture<InvalidValidatorComponent>;
+describe('MsgComponent', () => {
+  let component: MsgComponent;
+  let fixture: ComponentFixture<MsgComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ InvalidValidatorComponent ]
+      declarations: [ MsgComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(InvalidValidatorComponent);
+    fixture = TestBed.createComponent(MsgComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

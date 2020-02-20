@@ -1,77 +1,56 @@
-<div class="container">
-  <div class="row">
-
-    <form novalidate #form="ngForm" class="mt-5 col-12 col-sm-10 col-md-5 col-lg-4 mx-auto">
-      <h1 class="text-center mb-5">Cadastro</h1>
-
-      <app-validator>
-        <label for="nome">Nome</label>
-        <input ngModel id="nome" name="nome" class="form-control" required pattern="[a-zA-Z].{1,}">
-      </app-validator>
-
-      <app-validator>
-        <label for="cpf">CPF</label>
-        <input ngModel id="cpf" name="cpf" class="form-control" pattern="[0-9]{11}" required minlength="11"
-          maxlength="11">
-      </app-validator>
-
-      <app-validator>
-        <label for="rg">RG</label>
-        <input ngModel id="rg" name="rg" class="form-control" required minlength="7" maxlength="12">
-      </app-validator>
-
-      <div class="form-group">
-        <label for="dtnascimento">Data de nascimento</label>
-        <div class="input-group">
-
-          <input #dtnascimento="ngModel" ngModel hidden (ngModelChange)="onDateSelect($event)" class="form-control"
-            id="dtnascimento" placeholder="dd-mm-aaaa" name="dp" [(ngModel)]="selectedDate" getDayAriaLabel
-            ngbDatepicker #d="ngbDatepicker" (select)="onDateSelect($event)" [maxDate]="maxDate" [minDate]="minDate"
-            required>
-
-          <span class="form-control">{{dateFormat}}</span>
-
-          <div class="input-group-append">
-            <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button">
-              <i class="fa fa-calendar"></i>
-            </button>
-          </div>
-        </div>
-        <app-valid-validator *ngIf="dtnascimento.valid && (dtnascimento.dirty || dtnascimento.touched)">
-        </app-valid-validator>
-      </div>
-
-      <div class="form-group col-12 col-sm-12">
-        <div class="row mb-2">
-          Gênero
-        </div>
-
-        <div class="col-12 col-sm-12">
-          <input name="genero" type="radio" class="form-check-input" id="generom" value="m" required />
-          <label for="generom">Masculino</label>
-        </div>
-
-        <div class="col-12 col-sm-12">
-          <input name="genero" type="radio" class="form-check-input" id="generof" value="f" required />
-          <label for="generof">Feminino</label>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="estado">Estado</label>
-
-        <select #estado="ngModel" ngModel name="estado" class="form-control" id="estado" required>
-          <option value="">Selecione</option>
-          <option value="São Paulo">São Paulo</option>
-          <option value="Outro">Outro</option>
-        </select>
-
-        <app-invalid-validator *ngIf="!estado.valid && (estado.dirty || estado.touched)"></app-invalid-validator>
-        <app-valid-validator *ngIf="estado.valid && (estado.dirty || estado.touched)"></app-valid-validator>
-      </div>
-
-      <button [disabled]="!form.valid" class="btn btn-success col-12 col-sm-12 mt-5 mb-5"
-        type="submit">Cadastrar</button>
-    </form>
+<form class="container-fluid" (ngSubmit)="send()">
+  <div class="container">
+    <label for="name">Nome</label>
+    <input id="name" type="text" [(ngModel)]="form.name" name="name"/>
+    <app-msg *ngIf="error.name" [type]="1" [msg]="error.name"></app-msg>
   </div>
-</div>
+
+  <div class="container">
+    <label for="cpf">CPF</label>
+    <input id="cpf" type="text" [(ngModel)]="form.cpf" name="cpf"/>
+    <!-- <app-msg [type]="2" [msg]="'teste'"></app-msg> -->
+  </div>
+
+  <div class="container">
+    <label for="birth">Data de nascimento</label>
+    <input id="birth" type="date" [(ngModel)]="form.birth" name="birth" [min]="minDate" [max]="maxDate" />
+    <!-- <app-msg [type]="2" [msg]="'teste'"></app-msg> -->
+  </div>
+
+  <div class="container">
+    <label>Gênero</label>
+
+    <div class="container-radio">
+      <input type="radio" id="male" name="gender" value="0" [(ngModel)]="form.gender" />
+      <label for="male">Masculino</label>
+    </div>
+
+    <div class="container-radio">
+      <input type="radio" id="female" name="gender" value="1" [(ngModel)]="form.gender" />
+      <label for="female">Feminino</label>
+    </div>
+
+    <div class="container-radio">
+      <input type="radio" id="other" name="gender" value="2" [(ngModel)]="form.gender" />
+      <label for="other">Não informar</label>
+    </div>
+
+    <!-- <app-msg [type]="2" [msg]="'teste'"></app-msg> -->
+  </div>
+
+  <div class="container">
+    <label for="color">Cor favorita</label>
+    <select id="color" [(ngModel)]="form.color" name="color">
+      <option>Azul</option>
+      <option>Laranja</option>
+      <option>Preto</option>
+      <option>Outra</option>
+    </select>
+    <!-- <app-msg [type]="2" [msg]="'teste'"></app-msg> -->
+  </div>
+
+  <div class="container">
+    <input type="submit" value="enviar" />
+    <!-- <app-msg [type]="2" [msg]="'teste'"></app-msg> -->
+  </div>
+</form>

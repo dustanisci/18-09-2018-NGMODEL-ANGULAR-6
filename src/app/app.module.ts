@@ -1,25 +1,18 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+
 import { AppComponent } from './app.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MsgComponent } from './shared/component/msg/msg.component';
 import { FormsModule } from '@angular/forms';
-import { ValidValidatorComponent } from './valid-validator/valid-validator.component';
-import { InvalidValidatorComponent } from './invalid-validator/invalid-validator.component';
-import { ValidatorComponent } from './validator/validator.component';
-import { TextMaskModule } from 'angular2-text-mask';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ValidValidatorComponent,
-    InvalidValidatorComponent,
-    ValidatorComponent
+    MsgComponent
   ],
   imports: [
     BrowserModule,
-    NgbModule,
-    FormsModule,
-    TextMaskModule
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

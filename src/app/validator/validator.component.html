@@ -1,5 +1,0 @@
-<div class="form-group" [class.erro]="!input.valid && (input.dirty || input.touched)" [class.sucesso]="input.valid && (input.dirty || input.touched)">
-  <ng-content></ng-content>
-  <app-invalid-validator *ngIf="!input.valid && (input.dirty || input.touched)"></app-invalid-validator>
-  <app-valid-validator *ngIf="input.valid && (input.dirty || input.touched)"></app-valid-validator>
-</div>
