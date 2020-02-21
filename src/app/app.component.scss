@@ -119,3 +119,7 @@
     -webkit-appearance: none;
     display: none;
   }
+
+  input::-webkit-calendar-picker-indicator {
+    opacity: 1;
+  }
