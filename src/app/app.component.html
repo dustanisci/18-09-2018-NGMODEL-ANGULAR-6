@@ -41,10 +41,10 @@
   <div class="container">
     <label for="color">Cor favorita</label>
     <select id="color" [(ngModel)]="form.color" name="color">
-      <option>Azul</option>
-      <option>Laranja</option>
-      <option>Preto</option>
-      <option>Outra</option>
+      <option value="0">Azul</option>
+      <option value="1">Laranja</option>
+      <option value="2">Preto</option>
+      <option value="3">Outra</option>
     </select>
     <app-msg *ngIf="error.color" [type]="1" [msg]="error.color"></app-msg>
   </div>
