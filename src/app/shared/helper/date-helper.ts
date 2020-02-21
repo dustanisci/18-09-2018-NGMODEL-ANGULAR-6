@@ -6,16 +6,17 @@ export class DateHelper {
 
   static subtractDateNow(subtract: number): string {
     return this.checkValueDate(new Date().getFullYear() - subtract) + '-' +
-      this.checkValueDate(new Date().getMonth()) + '-' +
-      this.checkValueDate(new Date().getDay());
+      this.checkValueDate(new Date().getMonth() + 1) + '-' +
+      this.checkValueDate(new Date().getDate());
   }
 
   static dateNow(): string {
-    return new Date().getFullYear() + '-' + new Date().getMonth() + '-' + new Date().getDay();
+    return new Date().getFullYear() + '-' + (new Date().getMonth() + 1) + '-' + new Date().getDate();
   }
 
-  // static validate(date: Date): boolean {
 
-  // }
+  static isDateRange(minDate: string, maxDate: string, dateNow: string): boolean {
+    return dateNow < minDate || dateNow > maxDate ? false : true;
+  }
 
 }

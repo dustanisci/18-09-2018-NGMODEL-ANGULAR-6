@@ -51,6 +51,6 @@
 
   <div class="container">
     <input type="submit" value="enviar" />
-    <!-- <app-msg [type]="2" [msg]="'teste'"></app-msg> -->
+    <app-msg class="saved" [ngClass]="{ 'successfully' : actionSave === true }" [type]="2" [msg]="'Salvado com sucesso!'"></app-msg>
   </div>
 </form>

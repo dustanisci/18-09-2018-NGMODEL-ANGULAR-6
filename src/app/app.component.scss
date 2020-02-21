@@ -1,25 +1,38 @@
   .container-fluid {
-    display        : flex;
+    display: flex;
     justify-content: center;
-    align-items    : center;
-    flex-direction : column;
-    display        : flex;
-    font-size      : 15px;
-    width          : 300px;
-    margin-top     : 20px;
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+    font-size: 15px;
+    width: 300px;
+    margin-top: 20px;
 
     .container {
-      display       : flex;
+      display: flex;
       flex-direction: column;
-      margin-bottom : 30px;
-      width         : 100%;
+      margin-bottom: 30px;
+      width: 100%;
+
+      .saved {
+        position: fixed;
+        top: 0;
+        right: -170px;
+        transition: ease-in 250ms all;
+
+        &.successfully {
+          transition: ease-in 250ms all;
+          right: 20px !important;
+        }
+      }
 
       >label {
-        cursor       : pointer;
+        cursor: pointer;
+        margin-bottom: 5px;
 
         &:after {
-          content    : '*';
-          color      : red;
+          content: '*';
+          color: red;
           font-weight: bolder;
           margin-left: 5px;
         }
@@ -30,61 +43,60 @@
       select,
       select:focus {
         outline: 0;
-        cursor : pointer;
+        cursor: pointer;
       }
 
       select,
       input:not([type='submit']):not([type='radio']) {
-        height        : 25px;
-        border-bottom : 2px solid #000;
-        border-top    : none;
-        border-left   : none;
-        border-right  : none;
-        transition    : ease-in 250ms all;
-        padding-bottom: 5px;
-        position      : relative;
+        height: 25px;
+        border-bottom: 2px solid #000;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        transition: ease-in 250ms all;
+        position: relative;
 
         &:focus {
-          transition   : ease-in 250ms all;
+          transition: ease-in 250ms all;
           border-bottom: 2px solid #17a2b8;
         }
       }
 
       input[type="date"]::-webkit-calendar-picker-indicator {
-        color          : rgba(0, 0, 0, 0);
-        opacity        : 1;
-        background     : url('./../assets/img/calendar.png') no-repeat;
-        width          : 15px;
+        color: rgba(0, 0, 0, 0);
+        opacity: 1;
+        background: url('./../assets/img/calendar.png') no-repeat;
+        width: 15px;
         background-size: 20px;
-        height         : 15px;
-        right          : 0;
-        position       : absolute;
-        cursor:pointer;
+        height: 15px;
+        right: 0;
+        position: absolute;
+        cursor: pointer;
       }
 
       input[type='submit'] {
-        margin-top    : 20px;
-        background    : none;
-        padding       : 10px;
-        border        : 1px solid rgba(0, 0, 0, 0.5);
-        transition    : ease-in 250ms all;
+        margin-top: 20px;
+        background: none;
+        padding: 10px;
+        border: 1px solid rgba(0, 0, 0, 0.5);
+        transition: ease-in 250ms all;
         text-transform: uppercase;
-        font-size     : 12px;
+        font-size: 12px;
 
         &:hover {
           transition: ease-in 250ms all;
           background: #17a2b8;
-          color     : #FFF;
-          border    : 1px solid #17a2b8;
+          color: #FFF;
+          border: 1px solid #17a2b8;
         }
       }
 
       .container-radio {
         margin-bottom: 2px;
-        font-size    : 13px;
-        display      : flex;
-        align-items  : center;
-        height       : 20px;
+        font-size: 13px;
+        display: flex;
+        align-items: center;
+        height: 20px;
 
         label {
           margin: 0;
@@ -99,11 +111,11 @@
   }
 
   ::-webkit-clear-button {
-    display           : none;
+    display: none;
     -webkit-appearance: none;
   }
 
   ::-webkit-inner-spin-button {
     -webkit-appearance: none;
-    display           : none;
+    display: none;
   }
