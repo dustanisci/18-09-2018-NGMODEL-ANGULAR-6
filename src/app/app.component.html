@@ -1,20 +1,20 @@
 <form class="container-fluid" (ngSubmit)="send()">
   <div class="container">
     <label for="name">Nome</label>
-    <input id="name" type="text" [(ngModel)]="form.name" name="name"/>
+    <input id="name" type="text" [(ngModel)]="form.name" name="name" />
     <app-msg *ngIf="error.name" [type]="1" [msg]="error.name"></app-msg>
   </div>
 
   <div class="container">
     <label for="cpf">CPF</label>
-    <input id="cpf" type="text" [(ngModel)]="form.cpf" name="cpf"/>
-    <!-- <app-msg [type]="2" [msg]="'teste'"></app-msg> -->
+    <input id="cpf" type="number" [(ngModel)]="form.cpf" name="cpf" />
+    <app-msg *ngIf="error.cpf" [type]="1" [msg]="error.cpf"></app-msg>
   </div>
 
   <div class="container">
     <label for="birth">Data de nascimento</label>
     <input id="birth" type="date" [(ngModel)]="form.birth" name="birth" [min]="minDate" [max]="maxDate" />
-    <!-- <app-msg [type]="2" [msg]="'teste'"></app-msg> -->
+    <app-msg *ngIf="error.birth" [type]="1" [msg]="error.birth"></app-msg>
   </div>
 
   <div class="container">
@@ -35,7 +35,7 @@
       <label for="other">Não informar</label>
     </div>
 
-    <!-- <app-msg [type]="2" [msg]="'teste'"></app-msg> -->
+    <app-msg *ngIf="error.gender" [type]="1" [msg]="error.gender"></app-msg>
   </div>
 
   <div class="container">
@@ -46,7 +46,7 @@
       <option>Preto</option>
       <option>Outra</option>
     </select>
-    <!-- <app-msg [type]="2" [msg]="'teste'"></app-msg> -->
+    <app-msg *ngIf="error.color" [type]="1" [msg]="error.color"></app-msg>
   </div>
 
   <div class="container">
