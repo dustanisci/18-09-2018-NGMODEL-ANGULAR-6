@@ -2,7 +2,7 @@
 
 <b>Descrição:</b> Exemplo de implementação de template driven, formulários em angular com validações e mensagens personalziadas.
 
-<b>ndereço de acesso:</b> https://dustanisci.github.io/template-driven-forms-angular9/
+<b>Endereço de acesso:</b> https://dustanisci.github.io/template-driven-forms-angular9/
 
 <b>Tecnologias utilizadas:</b>
 <ul>
