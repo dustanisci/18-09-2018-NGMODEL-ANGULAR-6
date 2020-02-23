@@ -9,5 +9,4 @@
   <li>Angular 9</li>
   <li>Template Driven Forms</li>
   <li>Date Helper</li>
-  <li>Design Pattern</li>
 </ul>
