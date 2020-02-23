@@ -9,4 +9,8 @@
   <li>Angular 9</li>
   <li>Template Driven Forms</li>
   <li>Date Helper</li>
+  <li>HTML 5 </li>
+  <li>SCSS / CSS 3</li>
+  <li>TypeScript</li>
+  <li>JavaScript</li>
 </ul>
