@@ -4,7 +4,7 @@
 
 <b>Endereço de acesso:</b> https://dustanisci.github.io/template-driven-forms-angular9/
 
-<b>Tecnologias utilizadas:</b>
+<b>Tecnologias utilizadas:</b> 
 <ul>
   <li>Angular 9</li>
   <li>Template Driven Forms</li>
