@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Type } from '../../enum/type';
 
 @Component({
@@ -7,14 +7,9 @@ import { Type } from '../../enum/type';
   styleUrls: ['./msg.component.scss']
 })
 
-export class MsgComponent implements OnInit {
+export class MsgComponent {
 
   @Input() msg: string;
   @Input() type: Type;
-
-  constructor() { }
-
-  ngOnInit() {
-  }
 
 }

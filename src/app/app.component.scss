@@ -1,110 +1,121 @@
   .container-fluid {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    display: flex;
-    font-size: 15px;
     width: 300px;
-    margin-top: 20px;
+    display: block;
+    margin: 0 auto;
 
-    .container {
+    &__row {
       display: flex;
+      justify-content: center;
+      align-items: center;
       flex-direction: column;
-      margin-bottom: 30px;
-      width: 100%;
+      display: flex;
+      font-size: 17px;
+      margin-top: 20px;
 
-      .saved {
-        position: fixed;
-        top: 0;
-        right: -170px;
-        transition: ease-in 250ms all;
-
-        &.successfully {
-          transition: ease-in 250ms all;
-          right: 20px !important;
-        }
+      h1 {
+        font-size: 20px;
+        margin: 0px 0px 20px 0px;
       }
 
-      >label {
-        cursor: pointer;
-        margin-bottom: 5px;
-
-        &:after {
-          content: '*';
-          color: red;
-          font-weight: bolder;
-          margin-left: 5px;
-        }
-      }
-
-      input,
-      input:focus,
-      select,
-      select:focus {
-        outline: 0;
-        cursor: pointer;
-      }
-
-      select,
-      input:not([type='submit']):not([type='radio']) {
-        height: 25px;
-        border-bottom: 2px solid #000;
-        border-top: none;
-        border-left: none;
-        border-right: none;
-        transition: ease-in 250ms all;
-        position: relative;
-
-        &:focus {
-          transition: ease-in 250ms all;
-          border-bottom: 2px solid #17a2b8;
-        }
-      }
-
-      input[type="date"]::-webkit-calendar-picker-indicator {
-        color: rgba(0, 0, 0, 0);
-        opacity: 1;
-        background: url('./../assets/img/calendar.png') no-repeat;
-        width: 15px;
-        background-size: 20px;
-        height: 15px;
-        right: 0;
-        position: absolute;
-        cursor: pointer;
-      }
-
-      input[type='submit'] {
-        margin-top: 20px;
-        background: none;
-        padding: 10px;
-        border: 1px solid rgba(0, 0, 0, 0.5);
-        transition: ease-in 250ms all;
-        text-transform: uppercase;
-        font-size: 12px;
-
-        &:hover {
-          transition: ease-in 250ms all;
-          background: #17a2b8;
-          color: #FFF;
-          border: 1px solid #17a2b8;
-        }
-      }
-
-      .container-radio {
-        margin-bottom: 2px;
-        font-size: 13px;
+      .container {
         display: flex;
-        align-items: center;
-        height: 20px;
+        flex-direction: column;
+        margin-bottom: 30px;
+        width: 100%;
 
-        label {
-          margin: 0;
+        .saved {
+          position: fixed;
+          top: 0;
+          right: -170px;
+          transition: ease-in 250ms all;
+
+          &.successfully {
+            transition: ease-in 250ms all;
+            right: 20px !important;
+          }
+        }
+
+        >label {
+          cursor: pointer;
+          margin-bottom: 5px;
+
+          &:after {
+            content: '*';
+            color: red;
+            font-weight: bolder;
+            margin-left: 5px;
+          }
+        }
+
+        input,
+        input:focus,
+        select,
+        select:focus {
+          outline: 0;
           cursor: pointer;
         }
 
-        input {
-          margin-right: 10px;
+        select,
+        input:not([type='submit']):not([type='radio']) {
+          height: 25px;
+          border-bottom: 2px solid #000;
+          border-top: none;
+          border-left: none;
+          border-right: none;
+          transition: ease-in 250ms all;
+          position: relative;
+
+          &:focus {
+            transition: ease-in 250ms all;
+            border-bottom: 2px solid #17a2b8;
+          }
+        }
+
+        input[type="date"]::-webkit-calendar-picker-indicator {
+          color: rgba(0, 0, 0, 0);
+          opacity: 1;
+          background: url('./../assets/img/calendar.png') no-repeat;
+          width: 15px;
+          background-size: 20px;
+          height: 15px;
+          right: 0;
+          position: absolute;
+          cursor: pointer;
+        }
+
+        input[type='submit'] {
+          margin-top: 20px;
+          background: none;
+          padding: 10px;
+          border: 1px solid rgba(0, 0, 0, 0.5);
+          transition: ease-in 250ms all;
+          text-transform: uppercase;
+          font-size: 12px;
+
+          &:hover {
+            transition: ease-in 250ms all;
+            background: #17a2b8;
+            color: #FFF;
+            border: 1px solid #17a2b8;
+          }
+        }
+
+        &__radio {
+          margin: 10px 0px;
+          font-size: 13px;
+          display: flex;
+          align-items: center;
+
+          label {
+            margin: 0;
+            cursor: pointer;
+          }
+
+          input {
+            margin: 0 20px 0 0;
+            height: 20px;
+            width: 20px;
+          }
         }
       }
     }

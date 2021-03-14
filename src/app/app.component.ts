@@ -24,15 +24,19 @@ export class AppComponent {
   }
 
   public send(): void {
-    this.validate();
+    this.checkErrors();
 
     if (this.isValid()) {
       this.actionSave = true;
-      setTimeout(() => this.actionSave = false, 1000);
+
+      setTimeout(() => {
+        this.actionSave = false;
+        this.form = new Form();
+      }, 1000);
     }
   }
 
-  public validate(): void {
+  public checkErrors(): void {
     this.error = new ErrorMsg();
 
     if (!this.form.name || this.form.name.length <= 0 || this.form.name.trim().length === 0) {
@@ -51,10 +55,9 @@ export class AppComponent {
 
     if (!this.form.cpf) {
       this.error.cpf = 'CPF é um campo obrigatório';
-    } else if (this.form.cpf.toString().length > 11) {
-      this.error.cpf = 'CPF deve ter no máximo 11 caracteres';
+    } else if (this.form.cpf.toString().length < 11) {
+      this.error.cpf = 'CPF deve ter 11 caracteres';
     }
-
 
     if (!this.form.gender) {
       this.error.gender = 'Gênero é um campo obrigatório';
@@ -67,13 +70,12 @@ export class AppComponent {
   }
 
   public isValid(): boolean {
-    for (const erro of Object.keys(this.error)) {
-      if (this.error[erro].length) {
+    for (const attribute of Object.keys(this.error)) {
+      if (this.error[attribute].length) {
         return false;
       }
     }
     return true;
   }
-
 
 }

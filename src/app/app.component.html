@@ -1,56 +1,62 @@
-<form class="container-fluid" (ngSubmit)="send()">
-  <div class="container">
-    <label for="name">Nome</label>
-    <input id="name" type="text" [(ngModel)]="form.name" name="name" />
-    <app-msg *ngIf="error.name" [type]="1" [msg]="error.name"></app-msg>
-  </div>
+<div class="container-fluid">
+  <form class="container-fluid__row" (ngSubmit)="send()">
 
-  <div class="container">
-    <label for="cpf">CPF</label>
-    <input id="cpf" type="number" [(ngModel)]="form.cpf" name="cpf" />
-    <app-msg *ngIf="error.cpf" [type]="1" [msg]="error.cpf"></app-msg>
-  </div>
+    <h1>Formulário - Template Driven</h1>
 
-  <div class="container">
-    <label for="birth">Data de nascimento</label>
-    <input id="birth" type="date" [(ngModel)]="form.birth" name="birth" [min]="minDate" [max]="maxDate" />
-    <app-msg *ngIf="error.birth" [type]="1" [msg]="error.birth"></app-msg>
-  </div>
-
-  <div class="container">
-    <label>Gênero</label>
-
-    <div class="container-radio">
-      <input type="radio" id="male" name="gender" value="0" [(ngModel)]="form.gender" />
-      <label for="male">Masculino</label>
+    <div class="container">
+      <label for="name">Nome</label>
+      <input id="name" type="text" [(ngModel)]="form.name" name="name" />
+      <app-msg *ngIf="error.name" [type]="1" [msg]="error.name"></app-msg>
     </div>
 
-    <div class="container-radio">
-      <input type="radio" id="female" name="gender" value="1" [(ngModel)]="form.gender" />
-      <label for="female">Feminino</label>
+    <div class="container">
+      <label for="cpf">CPF</label>
+      <input id="cpf" type="number" [(ngModel)]="form.cpf" name="cpf" maxlength="11" />
+      <app-msg *ngIf="error.cpf" [type]="1" [msg]="error.cpf"></app-msg>
     </div>
 
-    <div class="container-radio">
-      <input type="radio" id="other" name="gender" value="2" [(ngModel)]="form.gender" />
-      <label for="other">Não informar</label>
+    <div class="container">
+      <label for="birth">Data de nascimento</label>
+      <input id="birth" type="date" [(ngModel)]="form.birth" name="birth" [min]="minDate" [max]="maxDate" />
+      <app-msg *ngIf="error.birth" [type]="1" [msg]="error.birth"></app-msg>
     </div>
 
-    <app-msg *ngIf="error.gender" [type]="1" [msg]="error.gender"></app-msg>
-  </div>
+    <div class="container">
+      <label>Gênero</label>
 
-  <div class="container">
-    <label for="color">Cor favorita</label>
-    <select id="color" [(ngModel)]="form.color" name="color">
-      <option value="0">Azul</option>
-      <option value="1">Laranja</option>
-      <option value="2">Preto</option>
-      <option value="3">Outra</option>
-    </select>
-    <app-msg *ngIf="error.color" [type]="1" [msg]="error.color"></app-msg>
-  </div>
+      <div class="container__radio">
+        <input type="radio" id="male" name="gender" value="0" [(ngModel)]="form.gender" />
+        <label for="male">Masculino</label>
+      </div>
 
-  <div class="container">
-    <input type="submit" value="enviar" />
-    <app-msg class="saved" [ngClass]="{ 'successfully' : actionSave === true }" [type]="2" [msg]="'Salvado com sucesso!'"></app-msg>
-  </div>
-</form>
+      <div class="container__radio">
+        <input type="radio" id="female" name="gender" value="1" [(ngModel)]="form.gender" />
+        <label for="female">Feminino</label>
+      </div>
+
+      <div class="container__radio">
+        <input type="radio" id="other" name="gender" value="2" [(ngModel)]="form.gender" />
+        <label for="other">Não informar</label>
+      </div>
+
+      <app-msg *ngIf="error.gender" [type]="1" [msg]="error.gender"></app-msg>
+    </div>
+
+    <div class="container">
+      <label for="color">Cor favorita</label>
+      <select id="color" [(ngModel)]="form.color" name="color">
+        <option value="0">Azul</option>
+        <option value="1">Laranja</option>
+        <option value="2">Preto</option>
+        <option value="3">Outra</option>
+      </select>
+      <app-msg *ngIf="error.color" [type]="1" [msg]="error.color"></app-msg>
+    </div>
+
+    <div class="container">
+      <input type="submit" value="enviar" />
+      <app-msg class="saved" [ngClass]="{ 'successfully' : actionSave === true }" [type]="2"
+        [msg]="'Salvado com sucesso!'"></app-msg>
+    </div>
+  </form>
+</div>
