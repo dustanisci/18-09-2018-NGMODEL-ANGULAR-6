@@ -2,7 +2,7 @@
 
 <b>Descrição:</b> Formulário em angular com template driven, possui validações e mensagens personalizadas.
 
-<b>Endereço de acesso:</b> https://dustanisci.github.io/template-driven-forms-angular9/
+<b>Endereço de acesso:</b> https://dustanisci.github.io/template-driven-forms-angular12/
 
 <b>Tecnologias utilizadas:</b> 
 <ul>
