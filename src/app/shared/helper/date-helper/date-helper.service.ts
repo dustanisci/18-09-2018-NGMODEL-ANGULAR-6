@@ -1,4 +1,9 @@
-export class DateHelper {
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class DateHelperService {
 
   static checkValueDate(value: number): string {
     return value < 10 ? '0' + value.toString() : value.toString();
@@ -13,7 +18,6 @@ export class DateHelper {
   static dateNow(): string {
     return new Date().getFullYear() + '-' + (new Date().getMonth() + 1) + '-' + new Date().getDate();
   }
-
 
   static isDateRange(minDate: string, maxDate: string, dateNow: string): boolean {
     return dateNow < minDate || dateNow > maxDate ? false : true;

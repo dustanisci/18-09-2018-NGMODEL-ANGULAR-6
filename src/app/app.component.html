@@ -11,7 +11,7 @@
 
     <div class="container">
       <label for="cpf">CPF</label>
-      <input id="cpf" type="number" [(ngModel)]="form.cpf" name="cpf" maxlength="11" />
+      <input id="cpf" type="number" [(ngModel)]="form.cpf" name="cpf" />
       <app-msg *ngIf="error.cpf" [type]="1" [msg]="error.cpf"></app-msg>
     </div>
 
@@ -25,17 +25,17 @@
       <label>Gênero</label>
 
       <div class="container__radio">
-        <input type="radio" id="male" name="gender" value="0" [(ngModel)]="form.gender" />
+        <input type="radio" id="male" name="gender" [value]="gender.Male" [(ngModel)]="form.gender" />
         <label for="male">Masculino</label>
       </div>
 
       <div class="container__radio">
-        <input type="radio" id="female" name="gender" value="1" [(ngModel)]="form.gender" />
+        <input type="radio" id="female" name="gender" [value]="gender.Female" [(ngModel)]="form.gender" />
         <label for="female">Feminino</label>
       </div>
 
       <div class="container__radio">
-        <input type="radio" id="other" name="gender" value="2" [(ngModel)]="form.gender" />
+        <input type="radio" id="other" name="gender" [value]="gender.Other" [(ngModel)]="form.gender" />
         <label for="other">Não informar</label>
       </div>
 
@@ -45,10 +45,10 @@
     <div class="container">
       <label for="color">Cor favorita</label>
       <select id="color" [(ngModel)]="form.color" name="color">
-        <option value="0">Azul</option>
-        <option value="1">Laranja</option>
-        <option value="2">Preto</option>
-        <option value="3">Outra</option>
+        <option [value]="color.Blue">Azul</option>
+        <option [value]="color.Orange">Laranja</option>
+        <option [value]="color.Black">Preto</option>
+        <option [value]="color.Other">Outra</option>
       </select>
       <app-msg *ngIf="error.color" [type]="1" [msg]="error.color"></app-msg>
     </div>
